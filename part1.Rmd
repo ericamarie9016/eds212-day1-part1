@@ -1,0 +1,41 @@
+---
+title: "EDS 212 Day 2 Part 1 - Derivatives and GIT intro"
+author: "Erica Dale"
+date: "2022-08-02"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Derivatives in R
+
+Find the derivative of $f(x) = 5x^2$ $$f(x) = 5x^2$$ Format equations with single (hover) or double (own box) dollar signs, similar to LATEX language
+
+```{r}
+ex_1 <- expression(5 * x ^ 2) #Expression allows addition of undefined component x
+
+deriv_1 <- deriv(ex_1, "x") #add variable to take derivative in respect to
+deriv_1
+
+# Find slope at x = 2.8
+x <- 2.8
+eval(deriv_1)
+
+```
+
+Another way to do derivatives:
+Find the slope of $g(z) = 2z^3 - 10.5z^2 + 4.1$
+
+```{r}
+gz <- expression(2 * z^3 - 10.5 * z^2 + 4.1)
+dg_dz <- D(gz, 'z')
+dg_dz
+
+# Evaluate slope over a range of values, define it as z in the equation
+z <- seq(from = -7, to = 4, by = .75)
+eval(dg_dz)
+
+```
+
